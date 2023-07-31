@@ -1,0 +1,6 @@
+@server = https://infantejonathan-redesigned-happiness-wwxqpxwpwpvf7q-8080.preview.app.github.dev
+###
+@emp = {server}/api/employees
+
+###
+GET {{emp}}
