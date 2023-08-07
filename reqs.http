@@ -1,6 +1,13 @@
-@server = https://infantejonathan-redesigned-happiness-wwxqpxwpwpvf7q-8080.preview.app.github.dev
-###
-@emp = {server}/api/employees
-
+@server = https://infantejonathan-redesigned-happiness-wwxqpxwpwpvf7q-8081.app.github.dev
+@emp = {{server}}/api/instrumentos
 ###
 GET {{emp}}
+###
+POST {{emp}}
+Content-Type: application/json
+
+{
+    "nombre": "tambor",
+    "categoria": "golpe",
+    "descripcion": "hecho de cuero y metal"
+}
