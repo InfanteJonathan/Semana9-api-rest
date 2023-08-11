@@ -1,13 +1,19 @@
-@server = https://infantejonathan-redesigned-happiness-wwxqpxwpwpvf7q-8081.app.github.dev
-@emp = {{server}}/api/instrumentos
+@server = https://texai-miniature-succotash-x9vwjq4r6cvqj4-8080.preview.app.github.dev
+@instumentos = {{server}}/api/instrumentos
+@musicos = {{server}}/api/musicos
 ###
-GET {{emp}}
+GET {{instumentos}}
 ###
-POST {{emp}}
+POST {{instumentos}}
 Content-Type: application/json
 
 {
-    "nombre": "tambor",
-    "categoria": "golpe",
-    "descripcion": "hecho de cuero y metal"
+    "nombre": "Quena",
+    "categoria": "Viento",
+    "descripcion": "Tubo de madera con orificios"
 }
+###
+POST {{musicos}}
+Content-Type: application/json
+
+{"nombre": "Otro Músico"}

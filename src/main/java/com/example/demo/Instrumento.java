@@ -16,9 +16,9 @@ public class Instrumento {
 
 	private Instrumento() {}
 
-	public Instrumento(String firstName, String lastName, String descripcion) {
-		this.nombre = firstName;
-		this.categoria = lastName;
+	public Instrumento(String nombre, String categoria, String descripcion) {
+		this.nombre = nombre;
+		this.categoria = categoria;
 		this.descripcion = descripcion;
 	}
 
@@ -41,8 +41,6 @@ public class Instrumento {
 		return Objects.hash(id, nombre, categoria, descripcion);
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Instrumento{" +
@@ -53,35 +51,35 @@ public class Instrumento {
 			'}';
 	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getCategoria() {
-        return categoria;
-    }
+	public String getCategoria() {
+		return categoria;
+	}
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 }

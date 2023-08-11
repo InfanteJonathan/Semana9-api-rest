@@ -1,57 +1,23 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const client = require('./client');
+const {createBrowserRouter, RouterProvider} = require('react-router-dom');
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {instrumentos: []};
-	}
-	componentDidMount() {
-		client({method: 'GET', path: '/api/instrumentos'}).done(response => {
-			this.setState({instrumentos: response.entity._embedded.instrumentos});
-		});
-	}
-	render() {
-		return (
-			<InstrumentoList instrumentos={this.state.instrumentos}/>
-		)
-	}
-}
+const PageHome = require('./pages/home');
+const PageVerInstrumento = require('./pages/ver-instrumento');
+const PageNuevoInstrumento = require('./pages/nuevo-instrumento');
+const PageNuevoMusico = require('./pages/nuevo-musico');
 
-class InstrumentoList extends React.Component{
-	render() {
-		const instrumentos = this.props.instrumentos.map(instrumento =>
-			<Instrumento key={instrumento._links.self.href} instrumento={instrumento}/>
-		);
-		return (
-			<table>
-				<tbody>
-					<tr>
-						<th>Nombre</th>
-						<th>Categoria</th>
-						<th>Descripcion</th>
-					</tr>
-					{instrumentos}
-				</tbody>
-			</table>
-		)
-	}
-}
+const router = createBrowserRouter([
+	{path: '/', element: <PageHome />},
+	{path: '/ver-instrumento/:id', element: <PageVerInstrumento />},
+	{path: '/nuevo-instrumento', element: <PageNuevoInstrumento />},
+	{path: '/nuevo-musico', element: <PageNuevoMusico />},
+])
 
-class Instrumento extends React.Component{
-	render() {
-		return (
-			<tr>
-				<td>{this.props.instrumento.nombre}</td>
-				<td>{this.props.instrumento.categoria}</td>
-				<td>{this.props.instrumento.descripcion}</td>
-			</tr>
-		)
-	}
-}
 
 ReactDOM.render(
-	<App />,
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>,
 	document.getElementById('react')
 )
